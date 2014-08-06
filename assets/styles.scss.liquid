@@ -847,12 +847,14 @@ input[type="radio"] {-webkit-appearance: radio;}
 }
 
 #header-image {
-	margin-top: 150px;
-	{ background: url('{{ main_header | asset_url }}') no-repeat center center fixed;
+
+	background: url('{{ 'main-header.png' | asset_url }}') no-repeat center center;
 	 -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	   -o-background-size: cover;
-	    background-size: cover; }
+	    background-size: cover; 
+   height: 450px;
+
 }
 
 .nav-options {
@@ -871,9 +873,25 @@ nav {
 }
 
 #featured-content {
+    background-color: #fff;
+    padding: 10px;
+  padding-top: 180px;
 	width: 100%;
 	max-width: 970px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: -200px;
+    position: relative;
+    left: -50%;
+    margin-top: 350px;
+}
+
+#featured-title {
+	width:auto;
+  height:auto;
+  margin-top:150px;
+  text-align:center;
+  text-decoration:underline;
+  color: {{ settings.main_heading_color }};
+  position: relative;
+  left: -50%;
+  font-size: 70pt;
+  font-weight:bold;
 }

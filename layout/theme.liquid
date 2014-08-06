@@ -175,21 +175,8 @@
 
         <div class="span12 full-border"></div>
         
-        {% assign blog_module_in_footer = false %}
         
-        <!-- Begin latest blog post -->
-        {% unless settings.footer_blog_post == blank or blogs[settings.footer_blog_post].empty? or blogs[settings.footer_blog_post].articles.size == 0 %}
-        {% assign article = blogs[settings.footer_blog_post].articles.first %}
-        {% assign blog_module_in_footer = true %}
-        <div class="span4">
-          <div class="p30">
-            <h4><a href="/blogs/{{ settings.footer_blog_post }}">{{ settings.footer_blog_post_header }}</a></h4>
-            <p class="p10"><strong>{{ article.title | link_to: article.url }}</strong></p>
-            <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
-          </div>
-        </div>
-        {% endunless %}
-        <!-- End latest blog post -->
+       
         
         <!-- Begin footer navigation -->
         <div class="span4 footer-menu">

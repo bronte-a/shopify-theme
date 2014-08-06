@@ -1,10 +1,22 @@
-<!-- Begin slider -->
-<div id="header-image" class="span12">
-  
-</div>
-<!-- End slider -->
 
-<div id="featured-content">
+<div id="header-image" class="span12">
+  <!--{{ 'main-header.png' | asset_url | img_tag }} -->
+</div>
+
+<div style="position: absolute; left: 50%;">
+
+  <div id="featured-title">
+  
+    <a href="{{ settings.main_heading_link }}">
+      {{ settings.main_heading }}
+    </a>
+    
+  </div>
+</div>
+  
+
+<div style="position: absolute; left: 50%;">
+ <div id="featured-content">
 
 {% if settings.show_fp_images %}
 <!-- Begin promo images -->
@@ -52,3 +64,20 @@
 {% endif %}
 
 </div>
+</div>
+
+<div style="height: 1500px;"></div>
+
+ <!-- Begin latest blog post -->
+        {% unless settings.footer_blog_post == blank or blogs[settings.footer_blog_post].empty? or blogs[settings.footer_blog_post].articles.size == 0 %}
+        {% assign article = blogs[settings.footer_blog_post].articles.first %}
+        {% assign blog_module_in_footer = true %}
+        <div class="span4">
+          <div class="p30">
+            <h4><a href="/blogs/{{ settings.footer_blog_post }}">{{ settings.footer_blog_post_header }}</a></h4>
+            <p class="p10"><strong>{{ article.title | link_to: article.url }}</strong></p>
+            <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
+          </div>
+        </div>
+        {% endunless %}
+        <!-- End latest blog post -->

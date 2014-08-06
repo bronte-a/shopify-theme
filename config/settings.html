@@ -1,9 +1,35 @@
 <fieldset>
   <legend>General</legend>
   <table>
-    <tr>
-      <th><label for="wide_layout">Enable Wide layout?</label></th>
-      <td><input type="checkbox" id="wide_layout" name="wide_layout" value="1" /></td>
+    <tr> 
+      <tr>
+      <th><label for="main_header_image">Main header image</label></th>
+      <td>
+        <input type="file" id="main_header_image" name="main-header.png" />
+      </td>
+    </tr>
+    
+    
+    
+    
+    <tr class="horizontal">
+      <th><label for="main_heading">Featured Main Heading</label></th>
+      <td><input id="main_heading" name="main_heading" value="Shop Now" /></td>
+    </tr>
+    
+     <tr class="horizontal">
+      <th><label for="main_heading_color">Main Heading Colour</label></th>
+      <td><input id="main_heading_color" name="main_heading_color" class="color" value="#ffffff" /></td>
+    </tr>
+  
+    
+    <tr class="horizontal">
+    <th><label for="main_heading_link">Main Heading Link</label></th>
+     <td> <input type="text" id="main_heading_link" name="main_heading_link" value="/collections" /></td>
+     </tr>
+
+    
+    
     </tr>
   </table>
 </fieldset>
@@ -35,17 +61,7 @@
     </tr>
 
 
-
-    <select id="main_header" name="main_header">
-    <tr>
-      <th><label for="main_header_image">Main header image</label></th>
-      <td>
-        <input type="file" id="main_header_image" name="main-header.png" />
-      </td>
-    </tr>
-    </select>
-
-
+    
 
     <tr>
        <th><label for="background_image_display">Background image display style?</label></th>
