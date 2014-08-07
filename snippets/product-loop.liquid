@@ -9,12 +9,13 @@
   {% endif %}
   
   <div class="image">
-    <a href="{{ url }}">
-      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape  }}" />
-    </a>
-  </div>
-  
-  <div class="details">
+
+    <div class="details-wrapper">
+      
+    <div style="position: absolute; left: 50%;">
+     
+    <div class="details">
+      
     <a href="{{ url }}" class="clearfix">
       <h4 class="title">{{ product.title }}</h4>
       {% if settings.product_vendor %}
@@ -37,6 +38,15 @@
       
     </a>
   </div>
+   </div>
+  </div>
+    
+    
+    <a href="{{ url }}">
+      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape  }}" />
+    </a>
+  </div>
+  
   
 </div>
 

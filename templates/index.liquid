@@ -17,27 +17,14 @@
 
 <div style="position: absolute; left: 50%;">
  <div id="featured-content">
-
-{% if settings.show_fp_images %}
-<!-- Begin promo images -->
-<div class="row" id="fp-images" style="margin-bottom:25px">
-  {% for i in (1..3) %}
-  {% capture fp_image %}fp_image_{{ i }}.jpg{% endcapture %}
-  {% capture fp_link %}fp_image_{{ i }}_link{% endcapture %}
-  {% capture fp_alt %}fp_image_{{ i }}_alt{% endcapture %}
-  <div class="span4">
-    <a href="{{ settings[fp_link] }}">
-      <img src="{{ fp_image | asset_url }}" alt="{{ settings[fp_alt] | escape }}" />
-    </a>
-  </div>
-  {% endfor %}
-</div>
-<!-- End promo images -->
-{% endif %}
-
+   
+   
+   
+   
+   
 {% if settings.homepage != blank %}
 <!-- Begin intro -->
-<div class="span12 p20">
+<div id="main-intro" class="span12 p20">
   <div class="intro clearfix">
     <h2>{{ pages[settings.homepage].title }}</h2>
     <div>{{ pages[settings.homepage].content }}</div>
@@ -46,6 +33,8 @@
 <!-- End intro -->
 {% endif %}
       
+  
+   
 <div class="products">
   {% for product in collections[settings.frontpage_collection].products %}
   {% include 'product-loop' with settings.frontpage_collection %}
@@ -63,21 +52,50 @@
 </div>
 {% endif %}
 
+   
+   
+   
+   
+   
+
+{% if settings.show_fp_images %}
+<!-- Begin promo images -->
+<div class="row" id="fp-images" style="margin-bottom:25px">
+  {% for i in (1..2) %}
+  {% capture fp_image %}fp_image_{{ i }}.jpg{% endcapture %}
+  {% capture fp_link %}fp_image_{{ i }}_link{% endcapture %}
+  {% capture fp_alt %}fp_image_{{ i }}_alt{% endcapture %}
+  <div class="sale-img span4">
+    <a href="{{ settings[fp_link] }}">
+      <img src="{{ fp_image | asset_url }}" alt="{{ settings[fp_alt] | escape }}" />
+    </a>
+  </div>
+  {% endfor %}
 </div>
+<!-- End promo images -->
+{% endif %}
+
+   
+    <!-- Begin latest blog post -->
+        {% unless settings.footer_blog_post == blank or blogs[settings.footer_blog_post].empty? or blogs[settings.footer_blog_post].articles.size == 0 %}
+        {% assign article = blogs[settings.footer_blog_post].articles.first %}
+        {% assign blog_module_in_footer = true %}
+       
+   		<div class="intro-post">
+   
+          
+            <h4><a href="/blogs/{{ settings.footer_blog_post }}">{{ settings.footer_blog_post_header }}</a></h4>
+            <p class="p10"><strong>{{ article.title | link_to: article.url }}</strong></p>
+            <p>{{ article.content | strip_html | truncatewords: 200 }}</p>
+          
+   </div>
+   
+        {% endunless %}
+        <!-- End latest blog -->
+
+
+</div> <!-- end content -->
 </div>
 
 <div style="height: 1500px;"></div>
 
- <!-- Begin latest blog post -->
-        {% unless settings.footer_blog_post == blank or blogs[settings.footer_blog_post].empty? or blogs[settings.footer_blog_post].articles.size == 0 %}
-        {% assign article = blogs[settings.footer_blog_post].articles.first %}
-        {% assign blog_module_in_footer = true %}
-        <div class="span4">
-          <div class="p30">
-            <h4><a href="/blogs/{{ settings.footer_blog_post }}">{{ settings.footer_blog_post_header }}</a></h4>
-            <p class="p10"><strong>{{ article.title | link_to: article.url }}</strong></p>
-            <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
-          </div>
-        </div>
-        {% endunless %}
-        <!-- End latest blog post -->

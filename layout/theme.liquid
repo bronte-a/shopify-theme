@@ -178,8 +178,11 @@
         
        
         
+        
+        <div style="width: 100px; margin-left:auto; margin-right:auto; text-align:center;">
+        
         <!-- Begin footer navigation -->
-        <div class="span4 footer-menu">
+        <div class="span4 footer-menu" style="margin-left: -120px;">
           <h4>{{ settings.footer_linklist_title }}</h4>
           <ul class="unstyled">
             {% for link in linklists[settings.footer_linklist].links %}
@@ -189,29 +192,10 @@
         </div>
         <!-- End footer navigation -->
         
-        <!-- Begin newsletter/social -->
-        <div class="span4">
-          
-          {% if settings.footer_display_newsletter %}
-          <div class="p30">
-            <h4>{{ settings.footer_newsletter_title }}</h4>
-            <form action="{{ settings.mailing_list_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-              <input type="email" value="" placeholder="Email Address" name="EMAIL" id="mail" /><input type="submit" class="btn newsletter" value="Subscribe" name="subscribe" id="subscribe" />
-            </form>
-          </div>
-          {% endif %}
-          
-          {% if blog_module_in_footer %}          
-          <div class="clearfix">
-          {% if settings.enable_social_links %}
-            <h4>{{ settings.footer_social_title }}</h4>
-            {% include 'social-links' %}
-          {% endif %}
-          </div>          
-          {% endif %}
-          
+       
         </div>
-        <!-- End newsletter/social -->
+        
+        
         
         {% unless blog_module_in_footer %}
         <div class="span4">          
@@ -226,7 +210,7 @@
         {% endunless %}
         
         <!-- Begin copyright -->
-        <div class="span12 tc copyright">
+        <div class="span12 tc copyright" style="margin-left:40px;" >
           <p>Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name }} | {{ powered_by_link }} {% if settings.designed_by %}{% endif %} </p>
           {% if shop.enabled_payment_types.size > 0 %}
           <ul class="credit-cards clearfix">
